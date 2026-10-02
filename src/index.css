@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    /* Removed scroll-behavior: smooth to prevent issues with initial load position */
+  }
+}
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-base: #041926;
+  --color-accent: #0A2E44;
+  --color-gold: #D4AF37;
+  --color-sand: #E5E7EB;
+}
+
+@layer base {
+  body {
+    @apply bg-base text-white font-sans antialiased selection:bg-white selection:text-base;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+.fade-gradient {
+  background: linear-gradient(to bottom, transparent, var(--color-base) 15%, var(--color-base) 85%, transparent);
+}
+
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(4, 25, 38, 0.1) 0%, rgba(4, 25, 38, 0.4) 50%, rgba(4, 25, 38, 1) 100%);
+}
+
+.atmosphere-blur {
+  background: radial-gradient(circle at 50% 50%, rgba(10, 46, 68, 0.25) 0%, transparent 80%);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  color: transparent;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
